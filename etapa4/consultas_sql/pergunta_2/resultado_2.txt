@@ -1,0 +1,19 @@
+oscar=# SELECT o.year, c.description, n.winner
+FROM tbl_nominees n
+JOIN tbl_oscar o ON n.oscar_id = o.id
+JOIN tbl_category c ON n.category_id = c.id
+JOIN tbl_movie m ON n.movie_id = m.id
+WHERE m.title ILIKE 'toy story 3'
+ORDER BY o.year, c.description;
+
+
+
+
+ year |         description          | winner 
+------+------------------------------+--------
+ 2010 | ANIMATED FEATURE FILM        | t
+ 2010 | BEST PICTURE                 | f
+ 2010 | MUSIC (Original Song)        | t
+ 2010 | SOUND EDITING                | f
+ 2010 | WRITING (Adapted Screenplay) | f
+(5 rows)
