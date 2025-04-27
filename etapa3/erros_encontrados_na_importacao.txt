@@ -1,0 +1,80 @@
+Durante o processo de análise e tratamento dos dados contidos no arquivo datasheet_oscars.csv, foram identificadas diversas inconsistências que precisaram ser corrigidas ou tratadas no momento da importação para garantir a integridade do banco de dados.
+As principais inconsistências foram:
+
+1. Valores inválidos na coluna Year
+
+-> Foram encontrados registros na coluna Year que, além do ano numérico esperado (ex: 2022), possuíam caracteres adicionais como:
+   Barra (/)
+   Letras (por exemplo, o caractere B).
+-Problema:
+O campo Year deveria conter apenas o ano no formato YYYY.
+Esses caracteres adicionais poderiam gerar erros ao tentar converter os dados para tipo INTEGER no banco.
+
+- Solução aplicada:
+Foi implementada uma limpeza (regex) para extrair apenas os 4 primeiros dígitos do ano.
+
+
+
+
+
+2. Valores incorretos na coluna Winner
+
+-> A coluna Winner deveria aceitar apenas:
+    t (true)
+    f (false)
+    null
+
+No entanto, foram encontrados outros valores, como:
+      "yes", "sim", 1, 0
+
+- Problema:
+Esses formatos diferentes poderiam causar falhas ao inserir no campo BOOLEAN no PostgreSQL.
+
+- Solução aplicada:
+Foi implementada uma função para mapear corretamente:
+
+"yes", "sim", "1" será True
+"no", "não", "0" será False
+Nesse prisma, os Valores inválidos ou vazios será False como já é por default.
+
+
+
+
+
+
+3. Presença de caracteres especiais em campos de texto
+
+Alguns campos (Class, Category, Movie, Name, Detail, Note) continham caracteres especiais como:
+     Acentos 
+     Emojis e simbolos
+
+- Problema:
+Esses caracteres poderiam gerar problemas na inserção.
+
+- Solução aplicada:
+Foi implementada uma função para remover todos os caracteres e normalizar o texto.
+
+
+
+
+
+
+
+4. Campos obrigatórios vazios
+
+Algumas linhas do arquivo CSV apresentavam campos obrigatórios vazios.
+Campos que não podem ser nulos no banco de dados são:
+
+    Ceremony	
+    Year	
+    Class	
+    Category	
+    Movie	
+
+
+- Problema:
+O banco exige NOT NULL para esses campos, e o CSV continha registros com valores ausentes.
+
+- Solução aplicada:
+Durante a importação, foi implementada uma validação:
+Se qualquer um desses 5 campos estivesse vazio, a linha era ignorada e registrada em uma lista de inconsistências qu chamei na variável "linhas_ignoradas".
