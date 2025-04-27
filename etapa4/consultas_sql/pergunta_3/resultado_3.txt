@@ -1,0 +1,52 @@
+oscar=# SELECT n.name, COUNT(*) indicacoes
+FROM tbl_nominees n
+WHERE n.name IS NOT NULL
+GROUP BY n.name
+HAVING COUNT(*) > 3
+ORDER BY indicacoes DESC;
+
+
+
+
+
+
+                               name                                | indicacoes 
+-------------------------------------------------------------------+------------
+ John Williams                                                     |          9
+ Alexandre Desplat                                                 |          8
+ Denmark                                                           |          8
+ Music and Lyric by Diane Warren                                   |          7
+ Missouri                                                          |          7
+ Joe Letteri                                                       |          6
+ Scott Rudin                                                       |          6
+ Roger Deakins                                                     |          6
+ Bradley Cooper                                                    |          6
+ Martin Scorsese                                                   |          6
+ Sandy Powell                                                      |          6
+ Jacqueline Durran                                                 |          6
+ Germany                                                           |          5
+ Poland                                                            |          5
+ Meryl Streep                                                      |          5
+ Thomas Newman                                                     |          5
+ Andy Nelson                                                       |          5
+ Mary Zophres                                                      |          4
+ Jennifer Lawrence                                                 |          4
+ Robert Richardson                                                 |          4
+ Mark Ruffalo                                                      |          4
+ Hans Zimmer                                                       |          4
+ Production Design: Sarah Greenwood; Set Decoration: Katie Spencer |          4
+ Mark Bridges                                                      |          4
+ Amy Adams                                                         |          4
+ Christian Bale                                                    |          4
+ Emmanuel Lubezki                                                  |          4
+ Steven Spielberg                                                  |          4
+ Brad Pitt                                                         |          4
+ Jenny Beavan                                                      |          4
+ Jon Taylor                                                        |          4
+ Colleen Atwood                                                    |          4
+ Michelle Williams                                                 |          4
+ Skip Lievsay                                                      |          4
+ Roger Guyett                                                      |          4
+ Ren Klyce                                                         |          4
+ Emma Stone                                                        |          4
+(37 rows)
