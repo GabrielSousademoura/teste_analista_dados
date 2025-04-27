@@ -28,8 +28,8 @@ def clean_year(value):
 conn = psycopg2.connect(
     host="localhost",
     database="oscar",
-    user="seu_usuario",
-    password="sua_senha"
+    user="gabrielsousa",
+    password="36531590"
 )
 
 
