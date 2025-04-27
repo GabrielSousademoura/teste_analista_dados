@@ -5,6 +5,10 @@ JOIN tbl_category c ON n.category_id = c.id
 JOIN tbl_movie m ON n.movie_id = m.id
 WHERE c.description ILIKE 'best picture'
 ORDER BY o.year, m.title;
+
+
+
+
  year | ceremony |                      title                      
 ------+----------+-------------------------------------------------
  2010 |       83 | 127 Hours
@@ -145,4 +149,3 @@ ORDER BY o.year, m.title;
  2024 |       97 | Wicked
 (136 rows)
 
-oscar=#      
