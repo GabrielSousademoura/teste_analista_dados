@@ -1,0 +1,12 @@
+1. Instalar o PostgreSQL no servidor Linux
+
+- Acessar o servidor via SSH:
+ssh gabriel@177.88.87.2 -p13770
+
+- Instalar o PostgreSQL:
+sudo apt update
+sudo apt install postgresql
+
+- Verificar o status do serviço e ativar o postgres, caso esteja desabilitado:
+systemctl status postgresql
+sudo systemctl start postgresql 
