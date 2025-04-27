@@ -1,0 +1,12 @@
+1.Quais os filmes indicados em cada ano na categoria "best picture"?
+Observação: mostrar ano, numero de cerimônia e nome do filme.
+
+
+
+2. Quais são todas categorias que houveram indicação para o filme "Toy Story 3"?
+Observação: mostrar ano, nome da categoria, e se venceu nessa categoria.
+
+
+  
+3. Quais são os atores ou atrizes com mais de 3 indicações em qualquer Oscar?
+Observação: mostrar nome do ator/atriz e quantidade de indicações, ordenados do maior para o menor.
