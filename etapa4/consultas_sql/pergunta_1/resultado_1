@@ -1,0 +1,148 @@
+oscar=# SELECT o.year, o.ceremony, m.title
+FROM tbl_nominees n
+JOIN tbl_oscar o ON n.oscar_id = o.id
+JOIN tbl_category c ON n.category_id = c.id
+JOIN tbl_movie m ON n.movie_id = m.id
+WHERE c.description ILIKE 'best picture'
+ORDER BY o.year, m.title;
+ year | ceremony |                      title                      
+------+----------+-------------------------------------------------
+ 2010 |       83 | 127 Hours
+ 2010 |       83 | Black Swan
+ 2010 |       83 | Inception
+ 2010 |       83 | The Fighter
+ 2010 |       83 | The Kids Are All Right
+ 2010 |       83 | The King's Speech
+ 2010 |       83 | The Social Network
+ 2010 |       83 | Toy Story 3
+ 2010 |       83 | True Grit
+ 2010 |       83 | Winter's Bone
+ 2011 |       84 | Extremely Loud & Incredibly Close
+ 2011 |       84 | Hugo
+ 2011 |       84 | Midnight in Paris
+ 2011 |       84 | Moneyball
+ 2011 |       84 | The Artist
+ 2011 |       84 | The Descendants
+ 2011 |       84 | The Help
+ 2011 |       84 | The Tree of Life
+ 2011 |       84 | War Horse
+ 2012 |       85 | Amour
+ 2012 |       85 | Argo
+ 2012 |       85 | Beasts of the Southern Wild
+ 2012 |       85 | Django Unchained
+ 2012 |       85 | Les MisArables
+ 2012 |       85 | Life of Pi
+ 2012 |       85 | Lincoln
+ 2012 |       85 | Silver Linings Playbook
+ 2012 |       85 | Zero Dark Thirty
+ 2013 |       86 | 12 Years a Slave
+ 2013 |       86 | American Hustle
+ 2013 |       86 | Captain Phillips
+ 2013 |       86 | Dallas Buyers Club
+ 2013 |       86 | Gravity
+ 2013 |       86 | Her
+ 2013 |       86 | Nebraska
+ 2013 |       86 | Philomena
+ 2013 |       86 | The Wolf of Wall Street
+ 2014 |       87 | American Sniper
+ 2014 |       87 | Birdman or (The Unexpected Virtue of Ignorance)
+ 2014 |       87 | Boyhood
+ 2014 |       87 | Selma
+ 2014 |       87 | The Grand Budapest Hotel
+ 2014 |       87 | The Imitation Game
+ 2014 |       87 | The Theory of Everything
+ 2014 |       87 | Whiplash
+ 2015 |       88 | Bridge of Spies
+ 2015 |       88 | Brooklyn
+ 2015 |       88 | Mad Max: Fury Road
+ 2015 |       88 | Room
+ 2015 |       88 | Spotlight
+ 2015 |       88 | The Big Short
+ 2015 |       88 | The Martian
+ 2015 |       88 | The Revenant
+ 2016 |       89 | Arrival
+ 2016 |       89 | Fences
+ 2016 |       89 | Hacksaw Ridge
+ 2016 |       89 | Hell or High Water
+ 2016 |       89 | Hidden Figures
+ 2016 |       89 | La La Land
+ 2016 |       89 | Lion
+ 2016 |       89 | Manchester by the Sea
+ 2016 |       89 | Moonlight
+ 2017 |       90 | Call Me by Your Name
+ 2017 |       90 | Darkest Hour
+ 2017 |       90 | Dunkirk
+ 2017 |       90 | Get Out
+ 2017 |       90 | Lady Bird
+ 2017 |       90 | Phantom Thread
+ 2017 |       90 | The Post
+ 2017 |       90 | The Shape of Water
+ 2017 |       90 | Three Billboards outside Ebbing
+ 2018 |       91 | A Star Is Born
+ 2018 |       91 | BlacKkKlansman
+ 2018 |       91 | Black Panther
+ 2018 |       91 | Bohemian Rhapsody
+ 2018 |       91 | Green Book
+ 2018 |       91 | Roma
+ 2018 |       91 | The Favourite
+ 2018 |       91 | Vice
+ 2019 |       92 | 1917
+ 2019 |       92 | Ford v Ferrari
+ 2019 |       92 | Jojo Rabbit
+ 2019 |       92 | Joker
+ 2019 |       92 | Little Women
+ 2019 |       92 | Marriage Story
+ 2019 |       92 | Once upon a Time...in Hollywood
+ 2019 |       92 | Parasite
+ 2019 |       92 | The Irishman
+ 2020 |       93 | Judas and the Black Messiah
+ 2020 |       93 | Mank
+ 2020 |       93 | Minari
+ 2020 |       93 | Nomadland
+ 2020 |       93 | Promising Young Woman
+ 2020 |       93 | Sound of Metal
+ 2020 |       93 | The Father
+ 2020 |       93 | The Trial of the Chicago 7
+ 2021 |       94 | Belfast
+ 2021 |       94 | CODA
+ 2021 |       94 | Don't Look Up
+ 2021 |       94 | Drive My Car
+ 2021 |       94 | Dune
+ 2021 |       94 | King Richard
+ 2021 |       94 | Licorice Pizza
+ 2021 |       94 | Nightmare Alley
+ 2021 |       94 | The Power of the Dog
+ 2021 |       94 | West Side Story
+ 2022 |       95 | All Quiet on the Western Front
+ 2022 |       95 | Avatar: The Way of Water
+ 2022 |       95 | Elvis
+ 2022 |       95 | Everything Everywhere All at Once
+ 2022 |       95 | TAr
+ 2022 |       95 | The Banshees of Inisherin
+ 2022 |       95 | The Fabelmans
+ 2022 |       95 | Top Gun: Maverick
+ 2022 |       95 | Triangle of Sadness
+ 2022 |       95 | Women Talking
+ 2023 |       96 | American Fiction
+ 2023 |       96 | Anatomy of a Fall
+ 2023 |       96 | Barbie
+ 2023 |       96 | Killers of the Flower Moon
+ 2023 |       96 | Maestro
+ 2023 |       96 | Oppenheimer
+ 2023 |       96 | Past Lives
+ 2023 |       96 | Poor Things
+ 2023 |       96 | The Holdovers
+ 2023 |       96 | The Zone of Interest
+ 2024 |       97 | A Complete Unknown
+ 2024 |       97 | Anora
+ 2024 |       97 | Conclave
+ 2024 |       97 | Dune: Part Two
+ 2024 |       97 | Emilia PArez
+ 2024 |       97 | I'm Still Here
+ 2024 |       97 | Nickel Boys
+ 2024 |       97 | The Brutalist
+ 2024 |       97 | The Substance
+ 2024 |       97 | Wicked
+(136 rows)
+
+oscar=#      
