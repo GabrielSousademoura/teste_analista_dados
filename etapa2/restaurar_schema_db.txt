@@ -1,0 +1,117 @@
+-- No terminal linux: psql -Ugabrielsousa -doscar -hlocalhost -f /Users/gabrielsousa/Downloads/schema_db.sql
+-- Segue abaixo o resultado:
+
+oscar=# \dt 
+              List of relations
+ Schema |     Name     | Type  |    Owner     
+--------+--------------+-------+--------------
+ public | tbl_category | table | gabrielsousa
+ public | tbl_class    | table | gabrielsousa
+ public | tbl_movie    | table | gabrielsousa
+ public | tbl_nominees | table | gabrielsousa
+ public | tbl_oscar    | table | gabrielsousa
+
+
+
+
+
+
+  
+-------------------------------------------------------------
+
+oscar=# \d tbl_category
+                                      Table "public.tbl_category"
+   Column    |          Type          | Collation | Nullable |                 Default                  
+-------------+------------------------+-----------+----------+------------------------------------------
+ id          | bigint                 |           | not null | nextval('tbl_category_id_seq'::regclass)
+ description | character varying(500) |           | not null | 
+Indexes:
+    "tbl_category_pkey" PRIMARY KEY, btree (id)
+    "tbl_category_description_key" UNIQUE CONSTRAINT, btree (description)
+Referenced by:
+    TABLE "tbl_nominees" CONSTRAINT "tbl_nominees_category_id_fkey" FOREIGN KEY (category_id) REFERENCES tbl_category(id) ON UPDATE CASCADE ON DELETE CASCADE
+
+oscar=# 
+oscar=#
+oscar=#
+oscar=# 
+oscar=#
+oscar=#
+oscar=# \d tbl_class
+                                      Table "public.tbl_class"
+   Column    |          Type          | Collation | Nullable |                Default                
+-------------+------------------------+-----------+----------+---------------------------------------
+ id          | bigint                 |           | not null | nextval('tbl_class_id_seq'::regclass)
+ description | character varying(255) |           | not null | 
+Indexes:
+    "tbl_class_pkey" PRIMARY KEY, btree (id)
+    "tbl_class_description_key" UNIQUE CONSTRAINT, btree (description)
+Referenced by:
+    TABLE "tbl_nominees" CONSTRAINT "tbl_nominees_class_id_fkey" FOREIGN KEY (class_id) REFERENCES tbl_class(id) ON UPDATE CASCADE ON DELETE CASCADE
+
+oscar=# 
+oscar=#
+oscar=#
+oscar=# 
+oscar=#
+oscar=#
+oscar=# \d tbl_movie
+                                    Table "public.tbl_movie"
+ Column |          Type          | Collation | Nullable |                Default                
+--------+------------------------+-----------+----------+---------------------------------------
+ id     | bigint                 |           | not null | nextval('tbl_movie_id_seq'::regclass)
+ title  | character varying(500) |           | not null | 
+Indexes:
+    "tbl_movie_pkey" PRIMARY KEY, btree (id)
+    "tbl_movie_title_key" UNIQUE CONSTRAINT, btree (title)
+Referenced by:
+    TABLE "tbl_nominees" CONSTRAINT "tbl_nominees_movie_id_fkey" FOREIGN KEY (movie_id) REFERENCES tbl_movie(id) ON UPDATE CASCADE ON DELETE CASCADE
+
+oscar=# 
+oscar=#
+oscar=#
+oscar=# 
+oscar=#
+oscar=#
+oscar=# \d tbl_oscar
+                             Table "public.tbl_oscar"
+  Column  |  Type   | Collation | Nullable |                Default                
+----------+---------+-----------+----------+---------------------------------------
+ id       | bigint  |           | not null | nextval('tbl_oscar_id_seq'::regclass)
+ ceremony | integer |           | not null | 
+ year     | integer |           | not null | 
+Indexes:
+    "tbl_oscar_pkey" PRIMARY KEY, btree (id)
+    "tbl_oscar_ceremony_key" UNIQUE CONSTRAINT, btree (ceremony)
+Referenced by:
+    TABLE "tbl_nominees" CONSTRAINT "tbl_nominees_oscar_id_fkey" FOREIGN KEY (oscar_id) REFERENCES tbl_oscar(id) ON UPDATE CASCADE ON DELETE CASCADE
+
+oscar=# 
+oscar=#
+oscar=#
+oscar=# 
+oscar=#
+oscar=#
+oscar=# \d tbl_nominees
+                                      Table "public.tbl_nominees"
+   Column    |          Type          | Collation | Nullable |                 Default                  
+-------------+------------------------+-----------+----------+------------------------------------------
+ id          | bigint                 |           | not null | nextval('tbl_nominees_id_seq'::regclass)
+ oscar_id    | bigint                 |           | not null | 
+ class_id    | bigint                 |           | not null | 
+ category_id | bigint                 |           | not null | 
+ movie_id    | bigint                 |           | not null | 
+ name        | character varying(500) |           |          | 
+ nominees    | character varying(500) |           |          | 
+ winner      | boolean                |           | not null | false
+ detail      | text                   |           |          | 
+ note        | text                   |           |          | 
+Indexes:
+    "tbl_nominees_pkey" PRIMARY KEY, btree (id)
+Foreign-key constraints:
+    "tbl_nominees_category_id_fkey" FOREIGN KEY (category_id) REFERENCES tbl_category(id) ON UPDATE CASCADE ON DELETE CASCADE
+    "tbl_nominees_class_id_fkey" FOREIGN KEY (class_id) REFERENCES tbl_class(id) ON UPDATE CASCADE ON DELETE CASCADE
+    "tbl_nominees_movie_id_fkey" FOREIGN KEY (movie_id) REFERENCES tbl_movie(id) ON UPDATE CASCADE ON DELETE CASCADE
+    "tbl_nominees_oscar_id_fkey" FOREIGN KEY (oscar_id) REFERENCES tbl_oscar(id) ON UPDATE CASCADE ON DELETE CASCADE
+
+oscar=#   
