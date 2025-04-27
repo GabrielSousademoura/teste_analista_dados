@@ -21,7 +21,7 @@ Foram aplicadas técnicas de limpeza, validação e normalização dos dados par
 - 'schema_db.sql' → Script para criação das tabelas no banco de dados. (Dentro da pasta dados_para_a_atividade)
 - 'datasheet_oscars.csv' → Base de dados contendo informações sobre indicações e vencedores do Oscar.(Dentro da pasta dados_para_a_atividade)
 - 'etapa1' → Processo para criar o database
-- 'etapa2'  →  Processo 
+- 'etapa2'  →  Processo de criar as tabelas no banco conforme o arquivo 'schema_db.sql'
 - 'etapa3 → Script de importação e resultado dos dados importados ou não.
 - 'etapa4/consultas_sql/lista_de_consultas.txt' → Consultas solicitadas no desafio.
 - 'etapa4/consultas_sql/pergunta_1,pergunta_2 e pergunta_3' → Contém a query utilizada para cada consulta e o resultado.
